@@ -1,12 +1,12 @@
 /**
- * DepositoCombustible es una clase que representa el depÃ³sito de gasolina de un coche
- * Un objeto DepositoCombustible agrupa la informaciÃ³n necesaria para describir el estado del depÃ³sito:
+ * DepositoCombustible es una clase que representa el depósito de gasolina de un coche
+ * Un objeto DepositoCombustible agrupa la información necesaria para describir el estado del depósito:
  * <ul>
- *   <li> depMax   capacidad del depÃ³sito
- *   <li> depNivel	nivel de gasolina del depÃ³sito
+ *   <li> depMax   capacidad del depósito
+ *   <li> depNivel	nivel de gasolina del depósito
  * </ul>
  * 
- * class invariante 		0.0 &lt;= depNivel &lt;= depMax
+ * class invariante 	0.0 &lt;= depNivel &lt;= depMax
  * 
  * @author IES Seveero Ochoa Team
  * @version 1.0
@@ -21,12 +21,12 @@ public class DepositoCombustible {
 	* DepositoCombustible es el constructor de la clase. 
 	* 
 	* <hr>
-	* <br> precondiciÃ³n  depMax &gt; 0.0 and 0.0 &lt;= depNivel &lt;= getTankMax()  
-	* <br> postcondiciÃ³n depMax &gt; 0.0 and 0.0 &lt;= depNivel &lt;= getTankMax() 
+	* <br> precondición  depMax &gt; 0.0 and 0.0 &lt;= depNivel &lt;= getTankMax()  
+	* <br> postcondición depMax &gt; 0.0 and 0.0 &lt;= depNivel &lt;= getTankMax() 
 	* <hr>
 	* 
-	* @param tankMax  es la cantidad de combustible (medida en litros) que cabe en el depÃ³sito
-	* @param tankLevel es la cantidad de combustible (medida en litros) que contiene el depÃ³sito inicialmente
+	* @param tankMax  es la cantidad de combustible (medida en litros) que cabe en el depósito
+	* @param tankLevel es la cantidad de combustible (medida en litros) que contiene el depósito inicialmente
 	* 
 	*/ 
 	DepositoCombustible(double tankMax, double tankLevel) {
@@ -35,27 +35,27 @@ public class DepositoCombustible {
     }
 
    /**
-    * getDepositoNivel es un mÃ©todo para obtener informaciÃ³n
+    * getDepositoNivel es un método para obtener información
     * 
-    * @return	la cantidad de combustible en el depÃ³sito
+    * @return	la cantidad de combustible en el depósito
     */
     public double getDepositoNivel(){
        return depNivel;
     }
 
    /**
-    * getDepositoMax es un mÃ©todo para obtener informaciÃ³n
+    * getDepositoMax es un método para obtener información
     * 
-    * @return	la capacidad (en litros) del depÃ³sito
+    * @return	la capacidad (en litros) del depósito
 	*/
 	public double getDepositoMax(){
        return depMax;
     }
 
    /**
-	* estaVacio da informaciÃ³n del estado 
+	* estaVacio da información del estado 
 	* 
-	* @return 	<code>true</code> si el depÃ³sito estÃ¡ vacio 
+	* @return 	<code>true</code> si el depósito está vacio 
     *          <code>false</code> en otro caso.
 	*/
     public boolean estaVacio(){
@@ -63,17 +63,22 @@ public class DepositoCombustible {
     }
 
     /**
-	 * estaLleno informaciÃ³n del estado 
+	 * estaLleno información del estado 
 	 * 
-	 * @return 	<code>true</code> si el depÃ³sito estÃ¡ lleno 
+	 * @return 	<code>true</code> si el depósito está lleno 
      *          <code>false</code> en otro caso.
 	 */
     public boolean estaLleno(){
 	  return depNivel == depMax;
     }
+    
+    // Método para comprobar si está por la mitad el depósito
+    public boolean estaPorLaMitad() {
+    	return depNivel == depMax/2;	
+    }
 
    /**
-	* llenar es un mÃ©todo que efectÃºa cambios aÃ±adiendo combustible al depÃ³sito
+	* llenar es un método que efectúa cambios añadiendo combustible al depósito
 	* 
 	* <hr>
 	* <br> precondicion 	0.0 &lt; amount &lt;= getDepositoMax() - getDepositoNivel() 
@@ -81,15 +86,15 @@ public class DepositoCombustible {
 	* <br> postcondicion  	depNivel &gt; depNivel_inicial 
 	* <hr>
 	* 
-	* @param amount 	Cantidad de combustible que aÃ±ade
+	* @param amount 	Cantidad de combustible que añade
 	* 
 	*/
     public void fill(double amount){
-       depNivel = depNivel + amount;
+    	depNivel = depNivel + amount;
     }
 
    /**
-	* consumir es un mÃ©todo que efectua cambios reduciendo el combustible del depÃ³sito
+	* consumir es un método que efectua cambios reduciendo el combustible del depósito
 	* 
     * @param amount cantidad de fuel consumida
     * 
@@ -97,4 +102,3 @@ public class DepositoCombustible {
 	public void consumir(double amount){
        depNivel = depNivel - amount;
     }
-}
